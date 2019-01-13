@@ -1,5 +1,6 @@
 package com.example.omdbsvc.rest;
 
+import com.example.omdbsvc.model.Omdb;
 import java.util.HashMap;
 import java.util.Map;
 import lombok.extern.log4j.Log4j2;
@@ -46,8 +47,8 @@ public class OmdbRestController {
 
         log.info(buildAndExpand.toString());
 
-        ResponseEntity<String> responseEntity = this.restTemplate
-                .exchange(buildAndExpand.toString(), HttpMethod.GET, null, String.class);
+        ResponseEntity<Omdb> responseEntity = this.restTemplate
+                .exchange(buildAndExpand.toString(), HttpMethod.GET, null, Omdb.class);
         return responseEntity;
     }
 }
